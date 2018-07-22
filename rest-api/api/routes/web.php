@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    $elements = ['fruit'];
+    $elements = ['SAPE'];
     return $elements;
 });
 
