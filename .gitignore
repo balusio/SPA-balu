@@ -7,3 +7,8 @@ node_modules/
 ehthumbs.db
 Icon?
 Thumbs.db   
+rest-api/api/vendor/
+rest-api/api/.idea
+rest-api/api/Homestead.json
+rest-api/api/Homestead.yaml
+rest-api/api/.env
