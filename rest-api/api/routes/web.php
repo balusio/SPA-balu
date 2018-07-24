@@ -12,9 +12,11 @@
 */
 
 $router->get('/', function () use ($router) {
-    $elements = ['SAPE'];
-    return $elements;
+    return 'hello';
 });
+
+$router->get('/bd-test', 'ExampleController@checkDb');
+
 
 $router->get('/house', function () use ($router) {
     return 'FUCK YEAH';

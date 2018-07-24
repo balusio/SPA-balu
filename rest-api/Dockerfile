@@ -7,15 +7,13 @@ RUN apt-get update && apt-get install -y \
     git \
     vim \
     zip \
-    unzip \
-    mysql-server \
-    mysql-client
+    unzip
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-RUN php installer  \
-    php composer.phar install  \
-    a2enmod rewrite  \
-    service mysql start  \
-    service apache2 restart 
-EXPOSE 3306 80 443
+RUN php installer
+RUN php composer.phar install
+RUN a2enmod rewrite
+RUN service apache2 restart 
+RUN chmod -R 777 storage
+EXPOSE 80

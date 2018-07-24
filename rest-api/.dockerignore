@@ -1,2 +1,2 @@
 ./api/vendor
-./api/.env
+./api/env

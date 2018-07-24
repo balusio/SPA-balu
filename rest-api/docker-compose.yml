@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+   db:
+     image: mysql:latest
+     restart: always
+     environment:
+      - MYSQL_ROOT_PASSWORD=balu
+      - MYSQL_DATABASE=products
+      - MYSQL_USER=balu
+      - MYSQL_PASSWORD=balu
+     ports:
+       - "3306:3306"
+   rest:
+     depends_on:
+       - db
+     build: .
+     volumes:
+       - /var/www/js-api/rest-api/api:/var/www/html/api
+     ports:
+       - "80:80"
+     restart: always
+volumes:
+    db_data:
