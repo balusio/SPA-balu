@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call('UsersTableSeeder');
-        $path = mysqli_real_escape_string('asses/random-image.png');
+        $path = 'asses/random-image.png';
         $data = [
         [
             'name'=> 'name 1',

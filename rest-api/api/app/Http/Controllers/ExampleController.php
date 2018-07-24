@@ -19,7 +19,7 @@ class ExampleController extends Controller
         {
         //     $results = DB::insert('insert into productos (id, name,sort,description,image) values (?, ?,?,?,?)', [1, 'Dayle',1,'DESCRIPTION','assets/imgs.png']);
         //    return 'Connected to the DB: ' . $results ;
-        $results = DB::select('select * from productos');
+        $results = DB::table('productos')->get();
         return $results;
         }
         else{
