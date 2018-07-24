@@ -6,27 +6,22 @@ module.exports ={
 		filename: 'main.bundle.js'
 
 	},
-	devServer: {
-    	contentBase: './dist'
-	},
+	watch: true,
+	mode: "development", 
 	module: {
     rules: [
-		{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			use:{
-				loader: "babel-loader"				
-			}
-		},
-		{
-		  test: /\.(jpg|png|svg)$/,
-		  loader: 'file-loader',
-		  options:{
-		  	 outputPath:  '/img',
-		  	 name: '[name].[ext]'
-		  }
+				{
+					test: /\.js$/,
+					exclude: /node_modules/,
+					use:{
+						loader: "babel-loader"				
+					}
+				}
 
-		}
-      ]
-    }
+    ]
+	},
+	devServer: {
+		contentBase: path.join(__dirname, 'dist'),
+		hot:true
+	}		
 }

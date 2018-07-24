@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
         ],
        
         ];
-        DB::table('productos')->insert($data);
+        DB::table('product')->insert($data);
 
     }
 }
