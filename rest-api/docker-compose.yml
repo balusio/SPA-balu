@@ -14,10 +14,9 @@ services:
      depends_on:
        - db
      build: .
+
      volumes:
        - /var/www/js-api/rest-api/api:/var/www/html/api
      ports:
        - "80:80"
      restart: always
-volumes:
-    db_data:

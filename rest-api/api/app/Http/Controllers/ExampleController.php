@@ -17,8 +17,10 @@ class ExampleController extends Controller
     public function checkDb(){
         if (DB::connection()->getDatabaseName())
         {
-            $results = DB::select("SELECT * FROM productos");
-           return 'Connected to the DB: ' . $results ;
+        //     $results = DB::insert('insert into productos (id, name,sort,description,image) values (?, ?,?,?,?)', [1, 'Dayle',1,'DESCRIPTION','assets/imgs.png']);
+        //    return 'Connected to the DB: ' . $results ;
+        $results = DB::select('select * from productos');
+        return $results;
         }
         else{
             return 'error';
