@@ -4,7 +4,7 @@
   "description": "simple js spa with api build on js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --hot ",
+    "start": "webpack-dev-server --inline --hot && webpack --watch",
     "build": "webpack --config webpack.config.js",
     "build-min": "webpack --mode=production"
   },
