@@ -9,7 +9,22 @@
         <h1>
             perucho
         </h1>
-        <button class="foo-button mdc-button">Button</button>
+        <div class="mdc-card" style="width: 300px;">
+            <div class="mdc-card__media mdc-card__media--square">
+              <div class="mdc-card__media-content">Title</div>
+            </div>
+            <!-- ... content ... -->
+            <div class="mdc-card__actions">
+              <div class="mdc-card__action-buttons">
+                <button class="mdc-button mdc-card__action mdc-card__action--button">Action 1</button>
+                <button class="mdc-button mdc-card__action mdc-card__action--button">Action 2</button>
+              </div>
+              <div class="mdc-card__action-icons">
+                <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
+                <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+              </div>
+            </div>
+          </div>
         <script src="main.bundle.js"></script>    
            
     </body>
