@@ -1,0 +1,1 @@
+export const enviroment = 'http://localhost/api/';

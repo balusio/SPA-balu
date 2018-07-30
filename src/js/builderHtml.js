@@ -1,7 +1,6 @@
 'use strict';
-
 import axios from 'axios';
-
+import {enviroment} from './enviroment';
 export default class builder {
 
   constructor(height, width) {
@@ -12,17 +11,29 @@ export default class builder {
     this.class = 'zalala';
   }
 
-  createElement() {
-    this.http.get('http://localhost/api/public/bd-test').then((response)=>{
-      console.log(response);
+  getItems() {
+    this.http.get(`${enviroment}public/bd-test`).then((response)=>{
+      
+      response.data.forEach(element => {
+        this.createItems(element);    
+      });
     });
-    console.log('Hi, I am a ', this.name + '.');
+   
+  }
+  createItems(element){
+    let containerdiv = document.createElement('form');
+      containerdiv.setAttribute('class', 'mdc-card');
+      const titleDiv= document.createElement('div');
+            titleDiv.setAttribute('class','mdc-card__media mdc-card__media--square');
+            const title = document.createElement('input');
+            title.setAttribute('value',element.name); 
+            title.setAttribute('disabled',true); 
+      titleDiv.appendChild(title);
+      containerdiv.appendChild(titleDiv);
+    document.body.appendChild(containerdiv);
   }
 
-  sayHistory() {
-    console.log('"Polygon" is derived from the Greek polus (many) ' +
-      'and gonia (angle).');
-  }
+
 
 }
 

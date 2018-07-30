@@ -21,9 +21,35 @@ module.exports ={
 					presets: ['es2015']
 				}			
 			}	
-		}]
+		},
+		{
+			test: /\.scss$/,
+			exclude: /node_modules/,
+			use: [
+				{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						// you can specify a publicPath here
+						// by default it use publicPath in webpackOptions.output
+						publicPath: path.resolve(__dirname, 'dist/css/'),
+					  }
+				},
+                // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "sass-loader" // vcompiles Sass to CSS
+			]
+		  }
+	]
 	},
-
+	plugins: [
+		new MiniCssExtractPlugin({
+		  // Options similar to the same options in webpackOptions.output
+		  // both options are optional
+		
+		  filename: '[name].css',
+		  chunkFilename: '[id].css'
+		})
+	],
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		hot:true
