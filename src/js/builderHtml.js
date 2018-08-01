@@ -55,7 +55,7 @@ export default class builder {
                 editButton.appendChild(textAccept);
           const cancelButton = document.createElement('button');
                 cancelButton.setAttribute('class','mdc-button mdc-card__action mdc-card__action--button');
-                editButton.onclick = function(event){
+                cancelButton.onclick = function(event){
                   event.preventDefault();
                   that.cancelEdit(event);
                 };
@@ -69,10 +69,18 @@ export default class builder {
   }
 
   editElement(event){
-    
-    console.log(event);
-    const currentElement = event.target.form;
-    
+    if(!this.edit &&  event.target.innerHTML === 'Editar'){
+      this.edit = true;
+      console.log(event.target);
+      event.target.innerHTML ='aceptar';
+      const currentElement = event.target.form;
+      
+    } else if(event.target.innerHTML === 'aceptar'){
+      alert('Termina de editar tú formulario');
+    } else{
+      alert('estas editando otro form');
+    }
+
   }
 
   cancelEdit(event){
