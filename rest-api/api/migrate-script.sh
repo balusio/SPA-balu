@@ -1,8 +1,11 @@
-#!/bin/bash
-php artisan migrate && php artisan db:seed
+#!/usr/bin/env php
 
-service apache2 restart
+<?php 
+$dbname = $_ENV['DB_DATABASE'];
+$dbuser = $_ENV['DB_USERNAME'];
+$dbpass = 'balu';
+$dbhost = $_ENV['DB_HOST'];
 
-#Extra line added in the script to run all command line arguments
-tail -f /dev/null
+echo $dbpass;
+?>
 
