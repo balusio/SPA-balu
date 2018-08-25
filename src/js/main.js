@@ -4,7 +4,7 @@ function startGame(){
     
     const p = new builder(300, 400);
     p.getItems();
-
+    p.makeElementsSortables();
 }
 
 
