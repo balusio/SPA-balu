@@ -1,4 +1,4 @@
-import builder from './builderHtml';
+import builder from './builder';
 const css = require('../scss/main.scss');
 function startGame(){
     
