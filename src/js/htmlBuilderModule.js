@@ -13,6 +13,7 @@ export default class builderModule{
 		this.editButton;
 		this.cancelButton;
 		this.image;
+		this.imagePreloader;
 	}
 
 	createItem(){
@@ -20,13 +21,25 @@ export default class builderModule{
 		this.containerDiv.setAttribute('data-sort', this.currentId);
 		this.containerDiv.setAttribute('class', 'mdc-card');
 		// <input id="photo" type="file" accept="image/*">  ;
-	   this.image = document.createElement('input');
-	   this.image.setAttribute('type','file');
-		this.image.setAttribute('style', `background-image=url(${ enviroment }public/${this.imageFileUrl});`);
-		this.image.setAttribute('value', `${this.imageFileUrl}`);
+
 	   const titleDiv = document.createElement('div');
-	   titleDiv.setAttribute('class', 'mdc-card__media mdc-card__media');
+		titleDiv.setAttribute('class', 'mdc-card__media mdc-card__media not-sortable');
+		this.image = document.createElement('input');
+		this.image.setAttribute('type', 'file');
+		this.image.setAttribute('class', 'hidden-file not-sortable');
+		this.image.setAttribute('id', `file_${this.currentId}`);
+		this.image.setAttribute('value', `${this.imageFileUrl}`);
+		this.imagePreloader = document.createElement('label');
+		this.imagePreloader.setAttribute('for', `file_${this.currentId}`);
+		this.imagePreloader.setAttribute('style', `background-url('${enviroment}public/${this.imageFileUrl}');`);
+		this.imagePreloader.setAttribute('class','image-preloader not-sortable');
+		
+		// this.imagePreloader.onclick = (event) => {
+		// 	event.preventDefault();
+		// 	this.triggerClick(event);
+		// };
 	   titleDiv.appendChild(this.image);
+		titleDiv.appendChild(this.imagePreloader);
 	   this.title_iput = document.createElement('input');
 	   this.title_iput.setAttribute('class', 'demo-card__title mdc-typography--headline6 not-sortable');
 	   this.title_iput.setAttribute('value', this.name);
@@ -62,8 +75,30 @@ export default class builderModule{
 		buttonRow.appendChild(this.cancelButton);
 		buttonContainer.appendChild(buttonRow);
 		this.containerDiv.appendChild(buttonContainer);
+		//THIS SCOPE FOR DIFFERENTE PORPOUSE
+		const that = this;
+		this.image.addEventListener('change', function () {
+			if (this.files && this.files[0]) {
+				that.setImage(this.files[0]);
+				
+			}
+
+				
+			
+		});
+
+
 		return this.containerDiv;
 		
+
+	}
+	triggerClick(){
+		// var event = new Event('click');
+		// this.image.dispatchEvent('change');
+	}
+	setImage(file){
+		const urlPreload = URL.createObjectURL(file);
+		this.imagePreloader.setAttribute('style', `background-image: url('${urlPreload}');`);
 
 	}
 	editElement(event) {

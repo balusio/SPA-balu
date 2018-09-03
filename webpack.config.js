@@ -4,8 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports ={
 	entry :'./src/js/main.js',
 	output: {
-		path: path.resolve(__dirname, 'dist/js/'),
-		filename: 'main.bundle.js'
+		path: path.resolve(__dirname, 'dist/'),
+		filename: 'js/main.bundle.js'
 
 	},
 	watch: true,
@@ -31,7 +31,8 @@ module.exports ={
 					options: {
 						// you can specify a publicPath here
 						// by default it use publicPath in webpackOptions.output
-						publicPath: path.resolve(__dirname, 'dist/css/'),
+						
+						name:'style.css'
 					  }
 				},
                 // creates style nodes from JS strings
@@ -45,9 +46,8 @@ module.exports ={
 		new MiniCssExtractPlugin({
 		  // Options similar to the same options in webpackOptions.output
 		  // both options are optional
-		
-		  filename: '[name].css',
-		  chunkFilename: '[id].css'
+			path: path.resolve(__dirname, 'dist/'),
+			filename: 'css/style.css'
 		})
 	],
 	devServer: {
