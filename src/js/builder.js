@@ -1,7 +1,6 @@
 'use strict';
 import axios from 'axios';
 import {enviroment} from './enviroment';
-import { Draggable } from '@shopify/draggable';
 import { Sortable } from '@shopify/draggable';
 import  builderModule  from './HtmlModule';
 export default class builder {
@@ -29,7 +28,6 @@ export default class builder {
 
   makeElementsSortables(){
     const container = document.querySelector(".container-sort");
-
     const sortable = new Sortable(container, {
       draggable: '.mdc-card'
     });
@@ -47,13 +45,10 @@ export default class builder {
       }
 
       
-      
     });
-    sortable.on('sortable:sort', () => console.log('sortable:sort'));
-    sortable.on('sortable:sorted', () => console.log('sortable:sorted'));
-    sortable.on('sortable:stop', () => {
-      console.log(event);
-    });
+    sortable.on('sortable:sort', () =>{} );
+    sortable.on('sortable:sorted', () =>{});
+    sortable.on('sortable:stop', ()=> {});
 
   }
 

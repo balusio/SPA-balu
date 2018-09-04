@@ -15,17 +15,17 @@ body{
     padding: 25px;
     -webkit-transition: background .3s linear;
     transition: background .3s linear;
+    &:hover{
+        background: repeating-linear-gradient(
+        45deg,
+        #c7cae2,
+        #1731db 10px,
+        #1731db 10px,
+        #1731db 20px
+        );   
+    }
 }
 
-.mdc-card:hover{
-     background: repeating-linear-gradient(
-    45deg,
-    #c7cae2,
-    #1731db 10px,
-    #1731db 10px,
-    #1731db 20px
-    );   
-}
 .mdc-card__media{
     input[type="file"]{
        visibility: hidden;

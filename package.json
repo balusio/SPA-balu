@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --hot && webpack --watch",
     "build": "webpack --config webpack.config.js",
+    "lint": "./node_modules/.bin/eslint --ext .js ./src",
     "build-min": "webpack --mode=production"
   },
   "repository": {
@@ -22,8 +23,10 @@
     "@shopify/draggable": "^1.0.0-beta.7",
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^9.0.0",
     "babel-preset-es2015": "^6.24.1",
-    "eslint": "^5.2.0"
+    "eslint": "^5.2.0",
+    "jasmine": "^3.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
