@@ -17,7 +17,8 @@ module.exports = function (config) {
 			'karma-webpack',
 			'karma-coverage',
 			'karma-babel-preprocessor',
-			'karma-jasmine-html'
+			'karma-jasmine-html-reporter',
+			'karma-sourcemap-loader'
 		],
 		webpack: {},
 		webpackServer: {
@@ -25,9 +26,11 @@ module.exports = function (config) {
 		},
 
 		autoWatch: true,
-		reporters: ['html', 'progress', 'coverage'],
+		reporters: ['progress', 'coverage','sourcemap'],
 		preprocessors: {
 			'spec/*.spec.js': ['webpack','coverage']
 		},
+		reporters: ['kjhtml']
+
 	});
 };
