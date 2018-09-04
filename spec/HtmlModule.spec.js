@@ -1,9 +1,10 @@
-describe("A suite is just a function", function () {
-	var a;
+import {enviroment} from '../src/js/enviroment';
 
-	it("and so is a spec", function () {
-		a = true;
-		console.log('A PASSED');
-		expect(a).toBe(true);
+describe("A suite is just a function", function () {
+	var a = enviroment;
+
+	it("check if enviroment is working", function () {
+		console.log(enviroment);
+		expect(a).toBe('http://localhost/api/');
 	});
 });
