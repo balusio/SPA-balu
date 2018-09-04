@@ -10,13 +10,17 @@ describe("MAIN TEST TO CHECK RUNNING APP", function () {
 		description: 'description',
 		image: 'http://element.png',
 	},
-	renderedElemet;
+	renderedElemet,
+	buttonContainer,
+	editButton;
 	beforeAll(function () {
 		body = document.getElementsByTagName("body")[0];
 		element = new builderModule(1, stubData);
 		renderedElemet = element.createItem();
 		env = enviroment;
 		body.appendChild(renderedElemet);
+		buttonContainer = document.getElementsByTagName('mdc-card__action-buttons')[0];
+		editButton = buttonContainer.getElementsByTagName('button')[0];
 	});
 
 	it("check if enviroment is working", function () {
@@ -29,10 +33,16 @@ describe("MAIN TEST TO CHECK RUNNING APP", function () {
 		expect(document.getElementById("form_1")).not.toBe(null);
 
 	});
-	it('should have bot buttons',function(){
-		var buttonContainer = document.getElementsByTagName('mdc-card__action-buttons')[0];
-		var button = buttonContainer.getElementsByTagName('button');
-		console.log(button);
+	it('inputs should be trigger actions after click button ',function(){
+		expect(element.name).toBe('test');
+		expect(editButton.innerHTML).toBe('Editar');
+		var input = document.getElementsByClassName('demo-card__title');
+		expect(input[0].disabled).toBeTruthy();
+		editButton.click();
+		element.title_iput.value = 'CHANGED';
+		expect(editButton.innerHTML).toBe('ACEPTAR');
+		expect(input[0].disabled).toBeFalsy();
 	});
+
 
 });

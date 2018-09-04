@@ -5,11 +5,9 @@ import { Sortable } from '@shopify/draggable';
 import  builderModule  from './HtmlModule';
 export default class builder {
 
-  constructor(height, width) {
+  constructor() {
     this.http = axios;
     this.name = 'Polygon';
-    this.height = height;
-    this.width = width;
     this.class = 'zalala';
     this.totalElements = 0;
     this.edit = false;
