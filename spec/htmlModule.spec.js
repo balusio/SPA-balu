@@ -1,6 +1,6 @@
 
 import { enviroment } from '../src/js/enviroment';
-import builderModule from '../src/js/HtmlModule';
+import builderModule from '../src/js/htmlModule';
 describe("MAIN TEST TO CHECK RUNNING APP", function () {
 	var body,
 	element,

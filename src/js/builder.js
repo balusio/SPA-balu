@@ -2,7 +2,7 @@
 import axios from 'axios';
 import {enviroment} from './enviroment';
 import { Sortable } from '@shopify/draggable';
-import  builderModule  from './HtmlModule';
+import  builderModule  from './htmlModule';
 export default class builder {
 
   constructor() {
