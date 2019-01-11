@@ -1,10 +1,11 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/test
     docker:
       - image: circleci/node:8.11.2-browsers
-  deploy-job:
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - "16:ee:2f:fd:49:ca:f3:2a:ca:d5:ce:d8:ee:da:00:89"
