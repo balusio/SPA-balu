@@ -15,6 +15,7 @@ jobs:
     docker:
       - image: circleci/node:8.11.2-browsers
     steps:
+      - checkout
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
       - run: npm install
       - run: gulp
