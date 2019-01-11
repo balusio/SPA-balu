@@ -1,5 +1,8 @@
 version: 2
 jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.2-browsers
   deploy-job:
     steps:
       - add_ssh_keys:
