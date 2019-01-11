@@ -1,5 +1,6 @@
 version: 2
 jobs:
+  - checkout
   build:
     docker:
       - image: circleci/node:8.11.2-browsers
