@@ -10,8 +10,20 @@ jobs:
           fingerprints:
             - "16:ee:2f:fd:49:ca:f3:2a:ca:d5:ce:d8:ee:da:00:89"
       - run: git clone git@github.com:EverFi/Skeletor.git
+  test:
     working_directory: ~/test/Skeletor
+    docker:
+      - image: circleci/node:8.11.2-browsers
+    steps:
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
       - run: npm install
       - run: gulp
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+        requires:
+          - build
 
