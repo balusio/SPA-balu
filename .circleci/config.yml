@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  start:
     working_directory: ~/test
     docker:
       - image: circleci/node:8.11.2-browsers
@@ -22,8 +22,8 @@ workflows:
   version: 2
   build-test-and-deploy:
     jobs:
-      - build
+      - start
       - test:
           requires:
-            - build
+            - start
 
