@@ -1,7 +1,7 @@
 version: 2
 jobs:
   start:
-    working_directory: /test
+    working_directory: ~/test
     docker:
       - image: circleci/node:8.11.2-browsers
     steps:
@@ -13,7 +13,7 @@ jobs:
       - persist_to_workspace:
           root: Skeletor
   test:
-    working_directory: /test
+    working_directory: ~/test
     docker:
       - image: circleci/node:8.11.2-browsers
     steps:
