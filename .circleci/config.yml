@@ -6,6 +6,8 @@ jobs:
       - image: circleci/node:8.11.2-browsers
     steps:
       - run: mkdir components
+      - attach_workspace:
+        at: ~/test/components
       - checkout
       - persist_to_workspace:
           root: ~/test
