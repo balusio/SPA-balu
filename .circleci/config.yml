@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir components 
-      -run: mv !(components) ~/test/components
+      - run: mv !(components) ~/test/components
       - persist_to_workspace:
           root: ~/test
           paths: components
