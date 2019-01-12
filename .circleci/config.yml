@@ -9,7 +9,7 @@ jobs:
       - checkout
       - persist_to_workspace:
           root: ~/test
-          paths: ~/test/components
+          paths: components
   test:
     working_directory: ~/test
     docker:
