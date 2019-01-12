@@ -6,7 +6,8 @@ jobs:
       - image: circleci/node:8.11.2-browsers
     steps:
       - checkout
-      - run: mkdir components && mv !(components) ~/test/components
+      - run: mkdir components 
+      -run: mv !(components) ~/test/components
       - persist_to_workspace:
           root: ~/test
           paths: components
