@@ -8,8 +8,8 @@ jobs:
       - run: mkdir components
       - checkout
       - persist_to_workspace:
-        root: ~/test
-        paths: ~/test/components
+          root: ~/test
+          paths: ~/test/components
   test:
     working_directory: ~/test
     docker:
