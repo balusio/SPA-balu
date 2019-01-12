@@ -5,10 +5,8 @@ jobs:
     docker:
       - image: circleci/node:8.11.2-browsers
     steps:
-      - run: mkdir components
-      - attach_workspace:
-        at: ~/test/components
       - checkout
+      - run: mkdir components mv * ~/test/components
       - persist_to_workspace:
           root: ~/test
           paths: components
@@ -20,7 +18,7 @@ jobs:
       - run: ls -a
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/test/components
+          at: ./components
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
       - run: npm install
       - run: npm run test
