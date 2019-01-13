@@ -28,8 +28,8 @@ jobs:
           # Must be absolute path or relative path from working_directory
           at: ~/test/Skeletor
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
-      - run: npm install
-      - run: gulp
+      - run: cd Skeletor && npm install
+      - run: cd Skeletor && gulp
 workflows:
   version: 2
   build-test-and-deploy:
