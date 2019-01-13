@@ -23,7 +23,7 @@ jobs:
       - run: ls -a
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/test/Skeletor
+          at: ./Skeletor
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
       - run: npm install
       - run: gulp
