@@ -6,11 +6,15 @@ jobs:
       - image: circleci/node:8.11.2-browsers
     steps:
       - checkout
-      - run: mkdir components 
-      - run: mv !(components) ~/test/components
+      - add_ssh_keys:
+          fingerprints:
+            - "16:ee:2f:fd:49:ca:f3:2a:ca:d5:ce:d8:ee:da:00:89"
+      - run: git clone git@github.com:EverFi/Skeletor.git
+      - run: ls -a
       - persist_to_workspace:
-          root: ~/test
-          paths: components
+          root: Skeletor
+          path: ~/test/Skeletor
+
   test:
     working_directory: ~/test
     docker:
@@ -19,10 +23,10 @@ jobs:
       - run: ls -a
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ./components
+          at: ~/test/Skeletor
       - run: sudo npm install npm@latest -g && sudo npm install gulp  -g
       - run: npm install
-      - run: npm run test
+      - run: gulp
 workflows:
   version: 2
   build-test-and-deploy:
