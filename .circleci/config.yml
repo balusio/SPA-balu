@@ -12,8 +12,8 @@ jobs:
       - run: git clone git@github.com:EverFi/Skeletor.git
       - run: ls -a
       - persist_to_workspace:
-          root: Skeletor
-          path: ~/test/Skeletor
+          root: ~/test
+          path: Skeletor
 
   test:
     working_directory: ~/test
