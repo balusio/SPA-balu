@@ -1,16 +1,15 @@
 version: 2
 jobs:
   start:
-    
     docker:
       - image: circleci/node:8.11.2-browsers
+    working_directory: ~/test
     steps:
       - run: mkdir components
       - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - add_ssh_keys:
           fingerprints:
             - "0c:1a:10:4e:4d:e9:5b:ad:5c:4d:32:70:9a:6f:7d:13"
-    working_directory: ~/test
       - run: cd components && git clone git@github.com:EverFi/Skeletor.git
       - run: ls -a
       - persist_to_workspace:
