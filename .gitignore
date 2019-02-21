@@ -12,3 +12,4 @@ rest-api/api/.idea
 rest-api/api/Homestead.json
 rest-api/api/Homestead.yaml
 rest-api/api/.env
+.circleci/testcircle.sh

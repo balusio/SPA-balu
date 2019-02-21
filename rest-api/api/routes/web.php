@@ -15,6 +15,6 @@ $router->get('/', function () use ($router) {
     return 'hello';
 });
 
-$router->get('/bd-test', 'ApiController@checkDb');
+$router->get('/sort', 'ApiController@checkDb');
 
 $router->get('/sort/{listItems}', 'ApiController@updateSortItems');

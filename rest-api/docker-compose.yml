@@ -1,8 +1,10 @@
-version: '3.3'
+version: '2'
 services:
    db:
      image: mysql:latest
      restart: always
+     volumes:
+       - /var/www/js-api/rest-api/api/migrate-script.sh:/docker-entrypoint-initdb.d/migrate-script.sh
      environment:
       - MYSQL_ROOT_PASSWORD=balu
       - MYSQL_DATABASE=products

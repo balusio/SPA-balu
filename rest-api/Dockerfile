@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     unzip
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
+RUN chmod +x ./wait-for-mysql.sh
 RUN php installer
 RUN php composer.phar install
 RUN a2enmod rewrite

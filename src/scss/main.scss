@@ -1,0 +1,44 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.mdc-card{
+    width: 300px;
+    background: repeating-linear-gradient(
+    45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+    );
+    padding: 25px;
+    -webkit-transition: background .3s linear;
+    -moz-transition: background .3s linear;
+    transition: background .3s linear;
+    &:hover{
+        background: repeating-linear-gradient(
+        45deg,
+        #c7cae2,
+        #1731db 10px,
+        #1731db 10px,
+        #1731db 20px
+        );   
+    }
+}
+
+.mdc-card__media{
+    input[type="file"]{
+       visibility: hidden;
+       width: 0;
+       height: 0; 
+    }
+    .image-preloader{
+        width: 100%;
+        height: 120px;
+        display: block;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
